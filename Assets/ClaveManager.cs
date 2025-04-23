@@ -7,9 +7,11 @@ public class ClaveManager : MonoBehaviour
 {
     // Crear variables publicos de los componentes q queremos referenciar desde el script. EJ: Input, texto (para modificarlo) y botón.
     public TMP_InputField inputClave;
+    public TMP_InputField inputUsername;
     public TextMeshProUGUI txtMensaje;
 
     string clave = "ELJUEGO";
+    string username = "admTIC";
     
     // Start is called before the first frame update
     void Start()
@@ -20,10 +22,13 @@ public class ClaveManager : MonoBehaviour
     public void ComprobarClaveIngresada()
     {
         string claveIngresada = inputClave.text;
-        if (claveIngresada != clave)
+        string usernameIngresado = inputUsername.text;
+
+        if (claveIngresada != clave || usernameIngresado != username)
         {
             txtMensaje.text = "Acceso denegado";
             inputClave.text = "";
+            inputUsername.text = "";
         }
         else
         {
